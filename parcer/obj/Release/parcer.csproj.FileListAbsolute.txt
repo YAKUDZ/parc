@@ -1,0 +1,10 @@
+D:\Project\parc\parcer\bin\Release\parcer.exe.config
+D:\Project\parc\parcer\bin\Release\parcer.exe
+D:\Project\parc\parcer\bin\Release\parcer.pdb
+D:\Project\parc\parcer\obj\Release\parcer.csprojAssemblyReference.cache
+D:\Project\parc\parcer\obj\Release\parcer.Form1.resources
+D:\Project\parc\parcer\obj\Release\parcer.Properties.Resources.resources
+D:\Project\parc\parcer\obj\Release\parcer.csproj.GenerateResource.cache
+D:\Project\parc\parcer\obj\Release\parcer.csproj.CoreCompileInputs.cache
+D:\Project\parc\parcer\obj\Release\parcer.exe
+D:\Project\parc\parcer\obj\Release\parcer.pdb

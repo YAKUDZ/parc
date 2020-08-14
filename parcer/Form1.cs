@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Diagnostics;
+using System.Net.Http.Headers;
 
 namespace parcer
 {
@@ -26,16 +27,22 @@ namespace parcer
         }
 
         private void OutputToCmd(string Movie )
-        {
-            string command = $"main.py  \n {Movie}";
+        { 
+            //string command = $"cd D:Parser\\utils python request_query.py  {Movie}";
 
-            ProcessStartInfo psi = new ProcessStartInfo();
+            ProcessStartInfo psi = new ProcessStartInfo("cmd.exe");
             //Имя запускаемого приложения
-            psi.FileName = "cmd";
+            //psi.FileName = "cmd";
             //команда, которую надо выполнить
-            psi.Arguments = @"CMD /k" + command ; 
-            Process.Start(psi);
+            psi.Arguments = $"CMD /k cd D:Parser\\utils && python request_query.py && CMD /k {Movie}";
+            Process.Start(psi);           
+        } 
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
+        //cd D:Parser\\utils \n python request_query.py  \n {Movie}
+        // "CMD /k cd D:Parser\\utils  \"python request_query.py\""
     }
 }

@@ -94,10 +94,11 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(272, 69);
+            this.textBox2.Location = new System.Drawing.Point(272, 70);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 4;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button1
             // 
@@ -112,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 181);
+            this.label2.Location = new System.Drawing.Point(306, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 2;
@@ -141,9 +142,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 13);
+            this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Название филмьа";
+            this.label1.Text = "Название проекта";
             // 
             // textBox1
             // 
