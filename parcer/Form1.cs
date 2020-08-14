@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.Diagnostics;
 using System.Net.Http.Headers;
+using System.IO;
 
 namespace parcer
 {
@@ -27,16 +28,18 @@ namespace parcer
         }
 
         private void OutputToCmd(string Movie )
-        { 
-            //string command = $"cd D:Parser\\utils python request_query.py  {Movie}";
+        {
+            Process p = new Process();
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.FileName = "cmd";
+            p.StartInfo.Arguments = $"CMD /K cd Parser\\utils &&  python request_query.py {Movie} ";
+            p.Start();
+            StreamReader outputreader = p.StandardOutput;
+            string output = outputreader.ReadToEnd();
+            label2.Text = output;
 
-            ProcessStartInfo psi = new ProcessStartInfo("cmd.exe");
-            //Имя запускаемого приложения
-            //psi.FileName = "cmd";
-            //команда, которую надо выполнить
-            psi.Arguments = $"CMD /k cd D:Parser\\utils && python request_query.py && CMD /k {Movie}";
-            Process.Start(psi);           
-        } 
+        }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
