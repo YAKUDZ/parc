@@ -32,20 +32,38 @@ namespace parcer
             Process p = new Process();
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardOutput = true;
+            //p.StartInfo.CreateNoWindow =  true;
             p.StartInfo.FileName = "cmd";
-            p.StartInfo.Arguments = $"CMD /K cd Parser\\utils &&  python request_query.py {Movie} ";
+            p.StartInfo.Arguments = $"CMD /k cd Parser\\utils && chcp 65001 && CMD /c python request_query.py {Movie}";
             p.Start();
-            StreamReader outputreader = p.StandardOutput;
-            string output = outputreader.ReadToEnd();
+            p.StandardOutput.ReadLine();
+            string output = p.StandardOutput.ReadLine() + "\n";
+            output += p.StandardOutput.ReadLine();
+            p.Close();
             label2.Text = output;
-
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            FindMovie(textBox2.Text, textBox3.Text, comboBox1.SelectedIndex);
         }
-        //cd D:Parser\\utils \n python request_query.py  \n {Movie}
-        // "CMD /k cd D:Parser\\utils  \"python request_query.py\""
+
+        private void FindMovie(string kinid, string imdbid, int index)
+        {
+            string type;
+            if(index == 1)
+            {
+                type = "movie";
+            }
+            else
+            {
+                type = "series";
+            }
+            
+            Process p = new Process();
+            p.StartInfo.FileName = "cmd";
+            p.StartInfo.Arguments = $"CMD /k cd Parser && python main.py {kinid} {imdbid} {type}";
+            p.Start();
+        }
     }
 }
